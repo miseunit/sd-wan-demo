@@ -1,0 +1,350 @@
+/**
+ * 智能选路 - 样式
+ */
+
+/* ============================================================
+ *  页面整体
+ * ============================================================ */
+
+.smart-routing {
+    padding: 24px;
+    min-height: 100vh;
+}
+
+.smart-routing__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.smart-routing__header-left {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.smart-routing__title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.smart-routing__title svg {
+    color: #1890ff;
+}
+
+.smart-routing__subtitle {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* ============================================================
+ *  路径探索选择器
+ * ============================================================ */
+
+.path-explorer {
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+}
+
+.path-explorer__selector {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.path-explorer__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.path-explorer__label {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.path-explorer__swap {
+    margin-bottom: 4px;
+    color: var(--text-muted);
+    transition: color 0.2s;
+}
+
+.path-explorer__swap:hover {
+    color: #1890ff;
+}
+
+.path-explorer__btn {
+    height: 40px;
+    padding: 0 28px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+/* ============================================================
+ *  主内容区（拓扑 + 推荐面板）
+ * ============================================================ */
+
+.smart-routing__main {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 20px;
+    margin-bottom: 20px;
+    min-height: 420px;
+}
+
+/* ============================================================
+ *  拓扑可视化
+ * ============================================================ */
+
+.smart-routing__topology {
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.topology-svg {
+    display: block;
+}
+
+.topology-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 400px;
+    gap: 16px;
+}
+
+.topology-placeholder__icon {
+    font-size: 48px;
+    opacity: 0.3;
+}
+
+.topology-placeholder__text {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* ============================================================
+ *  推荐路径面板
+ * ============================================================ */
+
+.recommend-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow-y: auto;
+    max-height: 500px;
+}
+
+.recommend-panel__header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.recommend-panel__title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.recommend-panel__route {
+    display: flex;
+    align-items: center;
+}
+
+.recommend-panel__policy {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.recommend-panel__policy-label {
+    color: var(--text-muted);
+}
+
+.recommend-panel__paths {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.recommend-panel__no-policy {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+}
+
+/* ============================================================
+ *  路径卡片
+ * ============================================================ */
+
+.path-card {
+    border: 1px solid var(--border-secondary);
+    border-left: 4px solid;
+    border-radius: 8px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.path-card:hover {
+    border-color: var(--border-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.path-card--推荐 {
+    background: rgba(82, 196, 26, 0.03);
+}
+
+.path-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.path-card__rank {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.path-card__score {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.path-card__links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.path-card__arrow {
+    color: var(--text-muted);
+    margin: 0 2px;
+    font-size: 12px;
+}
+
+.path-card__metrics {
+    display: flex;
+    gap: 16px;
+}
+
+.path-card__metric {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.path-card__metric-label {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.path-card__metric-value {
+    font-size: 14px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+.path-card__reason {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding: 6px 0;
+    border-top: 1px solid var(--border-secondary);
+}
+
+.path-card__apply {
+    margin-top: 4px;
+}
+
+/* ============================================================
+ *  链路实况表格
+ * ============================================================ */
+
+.link-quality {
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.link-quality__title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 16px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.link-quality__count {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-left: auto;
+}
+
+/* ============================================================
+ *  响应式
+ * ============================================================ */
+
+@media (max-width: 1200px) {
+    .smart-routing__main {
+        grid-template-columns: 1fr;
+    }
+
+    .recommend-panel {
+        max-height: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .path-explorer__selector {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .path-explorer__swap {
+        align-self: center;
+        transform: rotate(90deg);
+    }
+}

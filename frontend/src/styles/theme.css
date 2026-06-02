@@ -1,0 +1,529 @@
+/**
+ * SD-WAN 全局主题配置
+ * 用于统一所有页面的颜色、变量和 Ant Design 主题配置
+ */
+
+/* ============================================================
+ *  CSS 变量定义
+ * ============================================================ */
+
+:root {
+    /* ===== 主色调 ===== */
+    --color-primary: #1890ff;
+    --color-success: #52c41a;
+    --color-warning: #faad14;
+    --color-error: #ff4d4f;
+    --color-info: #1890ff;
+
+    /* ===== 深色主题（默认） ===== */
+    --bg-primary: #0a0e1a;
+    --bg-secondary: #0d1120;
+    --bg-card: rgba(15, 23, 53, 0.95);
+    --bg-elevated: rgba(21, 33, 70, 0.95);
+    --bg-tertiary: rgba(255, 255, 255, 0.04);
+
+    --text-primary: #e0e0e0;
+    --text-secondary: rgba(255, 255, 255, 0.35);
+    --text-muted: rgba(255, 255, 255, 0.25);
+
+    --border-primary: rgba(255, 255, 255, 0.06);
+    --border-secondary: rgba(255, 255, 255, 0.08);
+
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+
+    /* ===== 功能色背景 ===== */
+    --color-success-bg: rgba(82, 196, 26, 0.1);
+    --color-warning-bg: rgba(250, 173, 20, 0.1);
+    --color-error-bg: rgba(255, 77, 79, 0.06);
+    --color-info-bg: rgba(24, 144, 255, 0.1);
+
+    /* ===== 辅助色 ===== */
+    --accent-cyan: #1890ff;
+    --accent-purple: #722ed1;
+    --accent-green: #52c41a;
+
+    /* ===== 链路类型颜色 ===== */
+    --link-mpls-color: #1890ff;
+    --link-internet-color: #52c41a;
+    --link-5g-color: #722ed1;
+}
+
+/* ===== 浅色主题 ===== */
+[data-theme="light"] {
+    --bg-primary: #f5f7fa;
+    --bg-secondary: #ffffff;
+    --bg-card: #ffffff;
+    --bg-elevated: #f8fafc;
+    --bg-tertiary: #f1f5f9;
+
+    --text-primary: #1a1a2e;
+    --text-secondary: #64748b;
+    --text-muted: #94a3b8;
+
+    --border-primary: #e2e8f0;
+    --border-secondary: #cbd5e1;
+
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+    --color-success-bg: rgba(82, 196, 26, 0.1);
+    --color-warning-bg: rgba(250, 173, 20, 0.08);
+    --color-error-bg: rgba(255, 77, 79, 0.06);
+    --color-info-bg: rgba(24, 144, 255, 0.08);
+}
+
+/* ============================================================
+ *  通用表格样式（Ant Design Table + ConfigProvider）
+ * ============================================================ */
+
+/* 表格容器 */
+.table-wrapper {
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+/* 表头 */
+.ant-table-thead > tr > th {
+    background: var(--bg-tertiary) !important;
+    border-color: var(--border-primary) !important;
+    color: var(--text-secondary) !important;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 12px;
+}
+
+/* 表格单元格 */
+.ant-table-tbody > tr > td {
+    border-color: var(--border-primary) !important;
+    color: var(--text-primary) !important;
+    padding: 12px;
+    transition: background 0.2s;
+}
+
+/* 表格行悬停 */
+.ant-table-tbody > tr:hover > td {
+    background: var(--bg-elevated) !important;
+    border-color: var(--border-primary) !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.ant-table-tbody > tr:hover {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* 排序图标 */
+.ant-table-column-sorter {
+    color: var(--text-muted) !important;
+}
+
+.ant-table-column-sorter-up.active,
+.ant-table-column-sorter-down.active {
+    color: var(--accent-cyan) !important;
+}
+
+/* 状态行背景 - 链路管理 */
+.table-row--down.ant-table-row,
+.link-table-row--down.ant-table-row {
+    background: var(--color-error-bg) !important;
+}
+
+.table-row--down.ant-table-row:hover > td,
+.link-table-row--down.ant-table-row:hover > td {
+    background: rgba(255, 77, 79, 0.12) !important;
+}
+
+.table-row--degraded.ant-table-row,
+.table-row--warning.ant-table-row,
+.link-table-row--degraded.ant-table-row {
+    background: var(--color-warning-bg) !important;
+}
+
+.table-row--degraded.ant-table-row:hover > td,
+.table-row--warning.ant-table-row:hover > td,
+.link-table-row--degraded.ant-table-row:hover > td {
+    background: rgba(250, 173, 20, 0.10) !important;
+}
+
+/* 状态行背景 - 站点管理 */
+.table-row--offline.ant-table-row,
+.site-table-row--offline.ant-table-row {
+    background: var(--color-error-bg) !important;
+}
+
+.table-row--offline.ant-table-row:hover > td,
+.site-table-row--offline.ant-table-row:hover > td {
+    background: rgba(255, 77, 79, 0.12) !important;
+}
+
+.table-row--warning.ant-table-row,
+.site-table-row--warning.ant-table-row {
+    background: var(--color-warning-bg) !important;
+}
+
+.table-row--warning.ant-table-row:hover > td,
+.site-table-row--warning.ant-table-row:hover > td {
+    background: rgba(250, 173, 20, 0.10) !important;
+}
+
+/* ============================================================
+ *  通用分页样式
+ * ============================================================ */
+
+.pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.ant-pagination {
+    font-size: 13px;
+}
+
+.ant-pagination-item {
+    background: var(--bg-tertiary) !important;
+    border-color: var(--border-secondary) !important;
+}
+
+.ant-pagination-item a {
+    color: var(--text-primary) !important;
+}
+
+.ant-pagination-item:hover {
+    border-color: var(--accent-cyan) !important;
+}
+
+.ant-pagination-item:hover a {
+    color: var(--accent-cyan) !important;
+}
+
+.ant-pagination-item-active {
+    background: var(--accent-cyan) !important;
+    border-color: var(--accent-cyan) !important;
+}
+
+.ant-pagination-item-active a {
+    color: #fff !important;
+}
+
+.ant-pagination-prev,
+.ant-pagination-next,
+.ant-pagination-jump-prev,
+.ant-pagination-jump-next {
+    background: var(--bg-tertiary) !important;
+    border-color: var(--border-secondary) !important;
+}
+
+.ant-pagination-prev .ant-pagination-item-link,
+.ant-pagination-next .ant-pagination-item-link {
+    color: var(--text-secondary) !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+.ant-pagination-prev:hover,
+.ant-pagination-next:hover {
+    border-color: var(--accent-cyan) !important;
+}
+
+.ant-pagination-prev:hover .ant-pagination-item-link,
+.ant-pagination-next:hover .ant-pagination-item-link {
+    color: var(--accent-cyan) !important;
+}
+
+.ant-pagination-disabled {
+    opacity: 0.3;
+}
+
+.ant-pagination-disabled:hover {
+    border-color: var(--border-secondary) !important;
+}
+
+.ant-pagination-disabled .ant-pagination-item-link {
+    color: var(--text-muted) !important;
+}
+
+.ant-pagination-total-text {
+    color: var(--text-secondary) !important;
+}
+
+/* 分页下拉框 */
+.ant-select-selector {
+    background: var(--bg-tertiary) !important;
+    border-color: var(--border-secondary) !important;
+    color: var(--text-primary) !important;
+}
+
+/* ============================================================
+ *  通用输入框和下拉框样式
+ * ============================================================ */
+
+.ant-input {
+    background: var(--bg-tertiary) !important;
+    border-color: var(--border-secondary) !important;
+    color: var(--text-primary) !important;
+}
+
+.ant-input::placeholder {
+    color: var(--text-muted) !important;
+}
+
+.ant-input:hover,
+.ant-input:focus {
+    border-color: var(--accent-cyan) !important;
+}
+
+.ant-select-dropdown {
+    background: var(--bg-card) !important;
+    border-color: var(--border-primary) !important;
+}
+
+.ant-select-item {
+    color: var(--text-primary) !important;
+}
+
+.ant-select-item-option-selected {
+    background: var(--color-info-bg) !important;
+}
+
+.ant-select-item-option-active {
+    background: var(--bg-elevated) !important;
+}
+
+/* ============================================================
+ *  通用按钮样式
+ * ============================================================ */
+
+.ant-btn {
+    background: var(--bg-tertiary) !important;
+    border-color: var(--border-secondary) !important;
+    color: var(--text-primary) !important;
+}
+
+.ant-btn:hover {
+    border-color: var(--accent-cyan) !important;
+    color: var(--accent-cyan) !important;
+}
+
+.ant-btn-primary {
+    background: var(--accent-cyan) !important;
+    border-color: var(--accent-cyan) !important;
+    color: #fff !important;
+}
+
+.ant-btn-primary:hover {
+    background: #40a9ff !important;
+    border-color: #40a9ff !important;
+}
+
+.ant-btn-danger {
+    border-color: var(--color-error) !important;
+    color: var(--color-error) !important;
+    background: var(--color-error-bg) !important;
+}
+
+.ant-btn-danger:hover {
+    border-color: var(--color-error) !important;
+    color: var(--color-error) !important;
+    background: var(--color-error-bg) !important;
+}
+
+/* ============================================================
+ *  通用卡片样式
+ * ============================================================ */
+
+.overview-cards {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.overview-card {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s;
+}
+
+.overview-card:hover {
+    background: var(--bg-elevated);
+    border-color: var(--border-secondary);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.overview-card__icon {
+    font-size: 28px;
+    line-height: 1;
+}
+
+.overview-card__info {
+    display: flex;
+    flex-direction: column;
+}
+
+.overview-card__value {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+    font-variant-numeric: tabular-nums;
+}
+
+.overview-card__label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+
+/* ============================================================
+ *  通用状态标签样式
+ * ============================================================ */
+
+.status-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    cursor: default;
+    position: relative;
+}
+
+.status-tag--online,
+.status-tag--healthy {
+    background: var(--color-success-bg);
+    color: var(--color-success);
+}
+
+.status-tag--offline,
+.status-tag--down {
+    background: var(--color-error-bg);
+    color: var(--color-error);
+}
+
+.status-tag--warning,
+.status-tag--degraded {
+    background: var(--color-warning-bg);
+    color: var(--color-warning);
+}
+
+/* ============================================================
+ *  通用筛选栏样式
+ * ============================================================ */
+
+.filter-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 16px;
+}
+
+.filter-bar__left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-bar__count {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-left: 4px;
+}
+
+.filter-bar__count strong {
+    color: var(--text-primary);
+}
+
+/* ============================================================
+ *  通用页面标题样式
+ * ============================================================ */
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.page-header__left {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+}
+
+.page-header__title {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    letter-spacing: -0.3px;
+}
+
+.page-header__subtitle {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+/* ============================================================
+ *  滚动条样式
+ * ============================================================ */
+
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-primary);
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--border-secondary);
+}
+
+/* ============================================================
+ *  Segmented 组件样式
+ * ============================================================ */
+
+.ant-segmented {
+    background: var(--bg-tertiary) !important;
+}
+
+.ant-segmented-item {
+    color: var(--text-secondary) !important;
+}
+
+.ant-segmented-item-selected {
+    background: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+}
+
+/* ============================================================
+ *  Progress 组件样式
+ * ============================================================ */
+
+.ant-progress-bg {
+    background: var(--bg-tertiary) !important;
+}
