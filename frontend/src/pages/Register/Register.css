@@ -1,0 +1,148 @@
+/**
+ * 注册页面样式
+ * 深色科技风主题
+ */
+
+.register-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--bg-primary);
+    padding: 20px;
+}
+
+.register-card {
+    width: 100%;
+    max-width: 460px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* 品牌标识 */
+.register-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.register-brand-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent-cyan);
+    background: rgba(0, 180, 216, 0.15);
+    border: 2px solid var(--accent-cyan);
+    border-radius: 12px;
+    box-shadow: 0 0 20px var(--glow-cyan);
+}
+
+.register-brand-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 2px;
+}
+
+/* 注册表单 */
+.register-card .ant-form-item {
+    margin-bottom: 18px;
+}
+
+.register-card .ant-form-item:last-child {
+    margin-bottom: 0;
+}
+
+.register-card .ant-form-item-label > label {
+    color: var(--text-secondary);
+}
+
+.register-card .ant-input,
+.register-card .ant-input-password {
+    background: var(--bg-tertiary);
+    border-color: var(--border-primary);
+    color: var(--text-primary);
+}
+
+.register-card .ant-input:focus,
+.register-card .ant-input-password .ant-input:focus {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 8px var(--glow-cyan);
+}
+
+.register-card .ant-input::placeholder {
+    color: var(--text-muted);
+}
+
+.register-card .ant-btn-primary {
+    background: var(--accent-cyan);
+    border-color: var(--accent-cyan);
+    font-weight: 600;
+    height: 42px;
+    box-shadow: 0 2px 8px rgba(0, 180, 216, 0.3);
+    margin-top: 8px;
+}
+
+.register-card .ant-btn-primary:hover {
+    background: #00c4eb;
+    border-color: #00c4eb;
+    box-shadow: 0 2px 12px rgba(0, 180, 216, 0.4);
+}
+
+/* 密码强度指示器 */
+.password-strength {
+    margin-top: -8px;
+    margin-bottom: 16px;
+}
+
+.password-strength__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.password-strength__label {
+    font-size: 12px;
+}
+
+.password-strength__checks {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+.password-strength__check {
+    font-size: 11px;
+}
+
+/* 注册底部链接 */
+.register-footer {
+    text-align: center;
+    padding-top: 8px;
+}
+
+.register-footer .ant-typography {
+    margin-right: 4px;
+}
+
+.register-footer a {
+    color: var(--accent-cyan);
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.register-footer a:hover {
+    color: #00c4eb;
+    text-decoration: underline;
+}

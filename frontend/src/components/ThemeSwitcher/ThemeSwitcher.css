@@ -1,0 +1,166 @@
+/* ============================================================
+ *  主题切换器样式
+ * ============================================================ */
+
+.theme-switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: 20px;
+    transition: all var(--transition-duration) var(--transition-timing);
+}
+
+.theme-switcher:hover {
+    border-color: var(--border-active);
+    box-shadow: 0 0 12px var(--glow-cyan);
+}
+
+.theme-switcher__label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    transition: color var(--transition-duration) var(--transition-timing);
+}
+
+/* 主题切换开关样式定制 */
+.theme-switcher__switch {
+    background: var(--bg-tertiary);
+}
+
+.theme-switcher__switch .ant-switch-handle {
+    background: var(--accent-cyan);
+    box-shadow: 0 0 8px var(--glow-cyan);
+}
+
+.theme-switcher__switch.ant-switch-checked {
+    background: var(--bg-tertiary);
+}
+
+.theme-switcher__switch.ant-switch-checked .ant-switch-handle {
+    background: var(--accent-yellow);
+    box-shadow: 0 0 8px var(--glow-yellow);
+}
+
+/* 位置变体 */
+.theme-switcher--left {
+    justify-content: flex-start;
+}
+
+.theme-switcher--right {
+    justify-content: flex-end;
+}
+
+.theme-switcher--center {
+    justify-content: center;
+}
+
+/* ============================================================
+ *  主题切换按钮样式
+ * ============================================================ */
+
+.theme-toggle-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-duration) var(--transition-timing);
+    outline: none;
+}
+
+.theme-toggle-button:hover {
+    background: var(--bg-elevated);
+    border-color: var(--border-active);
+    box-shadow: 0 0 12px var(--glow-cyan);
+    transform: translateY(-1px);
+}
+
+.theme-toggle-button:active {
+    transform: translateY(0);
+}
+
+.theme-toggle-button__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: var(--accent-cyan);
+    transition: color var(--transition-duration) var(--transition-timing);
+}
+
+.theme-toggle-button:hover .theme-toggle-button__icon {
+    color: var(--accent-cyan-light);
+    text-shadow: 0 0 8px var(--glow-cyan);
+}
+
+.theme-toggle-button__label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    transition: color var(--transition-duration) var(--transition-timing);
+}
+
+.theme-toggle-button:hover .theme-toggle-button__label {
+    color: var(--text-primary);
+}
+
+/* 仅图标模式 */
+.theme-toggle-button:has(> .theme-toggle-button__icon:only-child) {
+    padding: 8px;
+    border-radius: 8px;
+}
+
+/* ============================================================
+ *  Dashboard HUD 中的主题切换器
+ * ============================================================ */
+
+.hud-theme-switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 12px;
+    background: rgba(15, 17, 40, 0.6);
+    border: 1px solid var(--dashboard-panel-border);
+    border-radius: 20px;
+    transition: all var(--transition-duration) var(--transition-timing);
+}
+
+.hud-theme-switcher:hover {
+    background: rgba(15, 17, 40, 0.8);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 15px var(--glow-cyan);
+}
+
+[data-theme="light"] .hud-theme-switcher {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(0, 102, 204, 0.2);
+}
+
+[data-theme="light"] .hud-theme-switcher:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 15px var(--glow-cyan);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .theme-switcher {
+        padding: 3px 6px;
+    }
+
+    .theme-toggle-button {
+        padding: 5px 10px;
+    }
+
+    .theme-toggle-button__label {
+        display: none;
+    }
+}

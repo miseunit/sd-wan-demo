@@ -1,0 +1,255 @@
+@import "tailwindcss";
+
+/* ============================================================
+ *  CSS 变量 — 主题系统
+ * ============================================================ */
+
+/* 深色主题（默认）- 科技感、数据可视化专业感 */
+[data-theme="dark"] {
+    /* 基础背景色 - 增强层次感 */
+    --bg-primary: #060b1a;
+    --bg-secondary: #0d1330;
+    --bg-tertiary: #121840;
+    --bg-card: #0f1735;
+    --bg-elevated: #151b3d;
+    --bg-overlay: rgba(6, 11, 26, 0.95);
+
+    /* 边框色 - 增强对比度 */
+    --border-primary: #1e2a5c;
+    --border-secondary: #253270;
+    --border-active: #00b4d8;
+    --border-focus: #00b4d8;
+
+    /* 文本色 */
+    --text-primary: #e0e0e0;
+    --text-secondary: #8892b0;
+    --text-muted: #555e7a;
+    --text-disabled: #3d4663;
+
+    /* 主题色 */
+    --accent-cyan: #00b4d8;
+    --accent-cyan-light: #00d4ee;
+    --accent-purple: #9d4edd;
+    --accent-purple-light: #b06eff;
+    --accent-gold: #ffd700;
+    --accent-green: #00ff88;
+    --accent-green-light: #33ffaa;
+    --accent-yellow: #ffdd00;
+    --accent-red: #ff4444;
+    --accent-red-light: #ff6666;
+
+    /* 状态色 */
+    --color-success: #00ff88;
+    --color-success-bg: rgba(0, 255, 136, 0.1);
+    --color-warning: #ffdd00;
+    --color-warning-bg: rgba(255, 221, 0, 0.1);
+    --color-error: #ff4444;
+    --color-error-bg: rgba(255, 68, 68, 0.15);
+    --color-info: #7b61ff;
+    --color-info-bg: rgba(123, 97, 255, 0.15);
+
+    /* 光效 */
+    --glow-cyan: rgba(0, 180, 216, 0.3);
+    --glow-purple: rgba(157, 78, 221, 0.3);
+    --glow-green: rgba(0, 255, 136, 0.3);
+    --glow-yellow: rgba(255, 221, 0, 0.3);
+    --glow-red: rgba(255, 68, 68, 0.3);
+
+    /* 阴影 - 增强深度感 */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
+    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.7);
+
+    /* Dashboard 专用变量 */
+    --dashboard-bg: #0a0b1a;
+    --dashboard-panel-bg: rgba(13, 19, 48, 0.9);
+    --dashboard-panel-border: rgba(100, 120, 255, 0.2);
+    --dashboard-accent: #7b61ff;
+    --dashboard-glow-green: #00ff88;
+    --dashboard-glow-yellow: #ffdd00;
+    --dashboard-glow-red: #ff4444;
+    --dashboard-text-primary: #e0e0e0;
+    --dashboard-text-secondary: #8892b0;
+
+    /* 大屏地图专用 */
+    --monitor-map-area: rgba(12, 28, 58, 0.85);
+    --monitor-map-border: rgba(60, 120, 190, 0.35);
+    --monitor-map-shadow: rgba(0, 80, 180, 0.15);
+    --monitor-label-shadow: rgba(0, 0, 0, 0.8);
+    --monitor-node-border: rgba(255, 255, 255, 0.9);
+    --monitor-hub-color: #26c6da;
+    --monitor-hub-glow: rgba(38, 198, 218, 0.5);
+    --monitor-spoke-color: #80deea;
+    --monitor-spoke-glow: rgba(128, 222, 234, 0.35);
+    --monitor-link-normal: rgba(38, 198, 218, 0.45);
+    --monitor-link-warn: rgba(255, 183, 77, 0.65);
+    --monitor-link-down: rgba(229, 115, 115, 0.6);
+    --monitor-flight-color: rgba(255, 255, 255, 0.9);
+    --monitor-label-color: rgba(220, 235, 255, 0.95);
+}
+
+/* 浅色主题 - 清爽现代、企业级应用可靠性 */
+[data-theme="light"] {
+    /* 基础背景色 */
+    --bg-primary: #f5f7fa;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-elevated: #ffffff;
+    --bg-overlay: rgba(255, 255, 255, 0.95);
+
+    /* 边框色 - 增强对比度 */
+    --border-primary: #d1d5db;
+    --border-secondary: #e5e7eb;
+    --border-active: #0066cc;
+    --border-focus: #0066cc;
+
+    /* 文本色 - 增强对比度 */
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --text-disabled: #94a3b8;
+
+    /* 主题色 */
+    --accent-cyan: #0066cc;
+    --accent-cyan-light: #0077ee;
+    --accent-purple: #7c3aed;
+    --accent-purple-light: #8b5cf6;
+    --accent-gold: #f59e0b;
+    --accent-green: #10b981;
+    --accent-green-light: #22c55e;
+    --accent-yellow: #fbbf24;
+    --accent-red: #ef4444;
+    --accent-red-light: #f87171;
+
+    /* 状态色 */
+    --color-success: #10b981;
+    --color-success-bg: rgba(16, 185, 129, 0.1);
+    --color-warning: #f59e0b;
+    --color-warning-bg: rgba(245, 158, 11, 0.1);
+    --color-error: #ef4444;
+    --color-error-bg: rgba(239, 68, 68, 0.1);
+    --color-info: #3b82f6;
+    --color-info-bg: rgba(59, 130, 246, 0.1);
+
+    /* 光效（浅色模式下减弱） */
+    --glow-cyan: rgba(0, 102, 204, 0.15);
+    --glow-purple: rgba(124, 58, 237, 0.15);
+    --glow-green: rgba(16, 185, 129, 0.15);
+    --glow-yellow: rgba(245, 158, 11, 0.15);
+    --glow-red: rgba(239, 68, 68, 0.15);
+
+    /* 阴影 - 增强层次感 */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.15);
+
+    /* Dashboard 专用变量 */
+    --dashboard-bg: #f0f4f8;
+    --dashboard-panel-bg: rgba(255, 255, 255, 0.95);
+    --dashboard-panel-border: rgba(0, 102, 204, 0.15);
+    --dashboard-accent: #3b82f6;
+    --dashboard-glow-green: #10b981;
+    --dashboard-glow-yellow: #f59e0b;
+    --dashboard-glow-red: #ef4444;
+    --dashboard-text-primary: #1a1a2e;
+    --dashboard-text-secondary: #5a5a6e;
+
+    /* 大屏地图专用 */
+    --monitor-map-area: rgba(215, 228, 245, 0.55);
+    --monitor-map-border: rgba(100, 150, 200, 0.3);
+    --monitor-map-shadow: rgba(60, 120, 200, 0.06);
+    --monitor-label-shadow: rgba(255, 255, 255, 0.7);
+    --monitor-node-border: rgba(255, 255, 255, 0.9);
+    --monitor-hub-color: #0097a7;
+    --monitor-hub-glow: rgba(0, 151, 167, 0.3);
+    --monitor-spoke-color: #00acc1;
+    --monitor-spoke-glow: rgba(0, 172, 193, 0.2);
+    --monitor-link-normal: rgba(0, 151, 167, 0.35);
+    --monitor-link-warn: rgba(230, 126, 34, 0.55);
+    --monitor-link-down: rgba(211, 47, 47, 0.5);
+    --monitor-flight-color: rgba(255, 255, 255, 0.9);
+    --monitor-label-color: rgba(20, 35, 65, 0.85);
+}
+
+/* 全局基础样式 */
+:root {
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    --transition-duration: 0.2s;
+    --transition-timing: ease;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: var(--bg-primary);
+}
+
+#root {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    border: none;
+    text-align: left;
+}
+
+/* ============================================================
+ *  全局滚动条
+ * ============================================================ */
+::-webkit-scrollbar {
+    width: 4px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--border-primary);
+    border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-cyan);
+}
+
+/* ============================================================
+ *  大屏动画关键帧
+ * ============================================================ */
+
+/* HUD 健康度脉冲环 */
+@keyframes dashboard-pulse-ring {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* 站点标记呼吸光效 */
+@keyframes dashboard-glow-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.15); }
+}
+
+/* 站点外圈扩散环 */
+@keyframes dashboard-marker-ring {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* 告警滑入 */
+@keyframes dashboard-slide-in {
+    from { transform: translateX(20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* 通用淡入 */
+@keyframes dashboard-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
